@@ -4,12 +4,18 @@ import '../styles/globals.css';
 import 'tailwindcss/tailwind.css';
 import ThemeSwitch from '../components/UI/ThemeSwitch';
 import Layout from '../components/UI/Layout';
+import { PortfolioProvider } from '../context/context';
 
 function MyApp({ Component, pageProps }) {
   return (
-    <ThemeProvider forcedTheme={Component.theme || undefined} attribute='class'>
-      <Component {...pageProps} />
-    </ThemeProvider>
+    <PortfolioProvider>
+      <ThemeProvider
+        forcedTheme={Component.theme || undefined}
+        attribute='class'
+      >
+        <Component {...pageProps} />
+      </ThemeProvider>
+    </PortfolioProvider>
   );
 }
 
