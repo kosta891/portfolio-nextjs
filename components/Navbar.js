@@ -1,5 +1,6 @@
 import Link from 'next/link';
-import { useContext, useEffect } from 'react';
+import { useRouter } from 'next/router';
+import { useContext, useEffect, useState } from 'react';
 import PortfolioContext from '../context/context';
 import { navLinks } from '../utils/constants';
 import { navClose, navOpen } from './UI/Svg';
@@ -7,6 +8,8 @@ import ThemeSwitch from './UI/ThemeSwitch';
 
 export default function Navbar() {
   const { isNavOpen, setIsNavOpen } = useContext(PortfolioContext);
+
+  const router = useRouter();
 
   useEffect(() => {
     if (isNavOpen) {
@@ -17,13 +20,17 @@ export default function Navbar() {
   }, [isNavOpen]);
 
   return (
-    <header className='flex flex-col justify-center transition-all '>
-      <nav className='flex items-center justify-between w-full relative border-gray-200 dark:border-gray-700 mx-auto pt-8 pb-8 sm:pb-16 text-gray-900  dark:text-gray-100 '>
-        <div className='flex flex-row items-center w-4/5'>
+    <header className='flex flex-col justify-center transition-all'>
+      <nav className='flex items-center justify-between w-full relative mx-auto pt-8 pb-8 sm:pb-16 text-gray-900  dark:text-gray-100 '>
+        <div className='flex flex-row items-center  w-4/5'>
           <ul>
             {navLinks.map((link) => (
               <Link href={link.url} key={link.id}>
-                <a className='mx-3 hidden md:visible md:inline-block rounded  hover:bg-gray-200 dark:hover:bg-gray-600 px-3 sm:py-2 transition-all'>
+                <a
+                  className={`${
+                    router.pathname === link.url ? 'active' : ''
+                  }  mr-3 hidden md:visible md:inline-block rounded text-gray-600 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-600 px-3 sm:py-2 transition-all`}
+                >
                   {link.text}
                 </a>
               </Link>
@@ -31,11 +38,11 @@ export default function Navbar() {
           </ul>
 
           {isNavOpen && (
-            <ul className=' min-w-full top:0 flex flex-col absolute bg-white dark:bg-theme-black  mobile-menu mobile-menu-rendered'>
+            <ul className=' min-w-full top:0 flex flex-col absolute bg-white dark:bg-theme-black mobile-menu mobile-menu-rendered'>
               {navLinks.map((link) => (
                 <li
                   key={link.id}
-                  className='border-b border-gray-300 dark:border-gray-700 text-gray-900 dark:text-gray-100 text-sm font-semibold '
+                  className='border-b border-gray-300 dark:border-gray-700 text-gray-900 dark:text-gray-100 text-sm font-semibold'
                 >
                   <Link href={link.url}>
                     <a
@@ -62,7 +69,7 @@ export default function Navbar() {
           </button>
         </div>
 
-        <ThemeSwitch className='md-hidden' />
+        <ThemeSwitch />
       </nav>
     </header>
   );

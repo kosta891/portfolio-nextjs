@@ -11,6 +11,8 @@ module.exports = {
     extend: {
       colors: {
         'theme-black': '#121212',
+        'theme-black2': '#212121',
+        'theme-white': '#FAFAFA',
       },
 
       gridTemplateRows: {
