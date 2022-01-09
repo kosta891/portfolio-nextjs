@@ -5,6 +5,7 @@ import { useContext, useEffect, useState } from 'react';
 import Layout from '../components/UI/Layout';
 import PortfolioContext from '../context/context';
 import { social } from '../utils/constants';
+import { projectsData } from '../utils/projectsData';
 
 export default function Home({ title }) {
   return (
@@ -19,7 +20,7 @@ export default function Home({ title }) {
               Web Developer, Programmer
             </h2>
             <p className='text-gray-600 dark:text-gray-400 mb-4'>
-              Developing and styling Websites and WebApps. Building frontend
+              Developing and styling Websites and WebApps. Building websites
               from scratch to production ready.
             </p>
             <ul className='flex flex-row justify-start items-center mb-16'>
@@ -51,65 +52,16 @@ export default function Home({ title }) {
             />
           </div>
         </div>
-        prva strana Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-        Quibusdam quam sint voluptates suscipit praesentium deserunt voluptatem
-        quod ea ab excepturi modi magni est culpa illum reprehenderit corrupti
-        amet, repudiandae at alias debitis autem. In at enim animi culpa cumque,
-        voluptatem quaerat, reiciendis, dolorem laboriosam placeat accusamus
-        perspiciatis asperiores esse consectetur? Doloremque molestiae
-        praesentium quibusdam mollitia error deserunt autem cum, distinctio
-        sequi iure dignissimos eveniet aspernatur dicta accusamus assumenda.
-        Eaque sed voluptatem, in suscipit velit odit ut corrupti repellat
-        repudiandae voluptas asperiores dignissimos officia sequi optio. Odit
-        facere deserunt excepturi iusto fugiat dolores quidem. Cum inventore
-        voluptatibus numquam totam dolor doloremque?prva strana Lorem ipsum,
-        dolor sit amet consectetur adipisicing elit. Quibusdam quam sint
-        voluptates suscipit praesentium deserunt voluptatem quod ea ab excepturi
-        modi magni est culpa illum reprehenderit corrupti amet, repudiandae at
-        alias debitis autem. In at enim animi culpa cumque, voluptatem quaerat,
-        reiciendis, dolorem laboriosam placeat accusamus perspiciatis asperiores
-        esse consectetur? Doloremque molestiae praesentium quibusdam mollitia
-        error deserunt autem cum, distinctio sequi iure dignissimos eveniet
-        aspernatur dicta accusamus assumenda. Eaque sed voluptatem, in suscipit
-        velit odit ut corrupti repellat repudiandae voluptas asperiores
-        dignissimos officia sequi optio. Odit facere deserunt excepturi iusto
-        fugiat dolores quidem. Cum inventore voluptatibus numquam totam dolor
-        doloremque? footer prva strana Lorem ipsum, dolor sit amet consectetur
-        adipisicing elit. Quibusdam quam sint voluptates suscipit praesentium
-        deserunt voluptatem quod ea ab excepturi modi magni est culpa illum
-        reprehenderit corrupti amet, repudiandae at alias debitis autem. In at
-        enim animi culpa cumque, voluptatem quaerat, reiciendis, dolorem
-        laboriosam placeat accusamus perspiciatis asperiores esse consectetur?
-        Doloremque molestiae praesentium quibusdam mollitia error deserunt autem
-        cum, distinctio sequi iure dignissimos eveniet aspernatur dicta
-        accusamus assumenda. Eaque sed voluptatem, in suscipit velit odit ut
-        corrupti repellat repudiandae voluptas asperiores dignissimos officia
-        sequi optio. Odit facere deserunt excepturi iusto fugiat dolores quidem.
-        Cum inventore voluptatibus numquam totam dolor doloremque? prva strana
-        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quibusdam quam
-        sint voluptates suscipit praesentium deserunt voluptatem quod ea ab
-        excepturi modi magni est culpa illum reprehenderit corrupti amet,
-        repudiandae at alias debitis autem. In at enim animi culpa cumque,
-        voluptatem quaerat, reiciendis, dolorem laboriosam placeat accusamus
-        perspiciatis asperiores esse consectetur? Doloremque molestiae
-        praesentium quibusdam mollitia error deserunt autem cum, distinctio
-        sequi iure dignissimos eveniet aspernatur dicta accusamus assumenda.
-        Eaque sed voluptatem, in suscipit velit odit ut corrupti repellat
-        repudiandae voluptas asperiores dignissimos officia sequi optio. Odit
-        facere deserunt excepturi iusto fugiat dolores quidem. Cum inventore
-        voluptatibus numquam totam dolor doloremque? footerprva strana Lorem
-        ipsum, dolor sit amet consectetur adipisicing elit. Quibusdam quam sint
-        voluptates suscipit praesentium deserunt voluptatem quod ea ab excepturi
-        modi magni est culpa illum reprehenderit corrupti amet, repudiandae at
-        alias debitis autem. In at enim animi culpa cumque, voluptatem quaerat,
-        reiciendis, dolorem laboriosam placeat accusamus perspiciatis asperiores
-        esse consectetur? Doloremque molestiae praesentium quibusdam mollitia
-        error deserunt autem cum, distinctio sequi iure dignissimos eveniet
-        aspernatur dicta accusamus assumenda. Eaque sed voluptatem, in suscipit
-        velit odit ut corrupti repellat repudiandae voluptas asperiores
-        dignissimos officia sequi optio. Odit facere deserunt excepturi iusto
-        fugiat dolores quidem. Cum inventore voluptatibus numquam totam dolor
-        doloremque? footer
+        <div>
+          {/* featured projects */}
+          {projectsData.map((project) => (
+            <div>
+              <h3>{project.name}</h3>
+              <p>{project.description}</p>
+            </div>
+          ))}
+        </div>
+        <footer>Footer</footer>
       </div>
     </Layout>
   );
