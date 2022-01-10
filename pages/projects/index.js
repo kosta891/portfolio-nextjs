@@ -10,7 +10,7 @@ export default function projects() {
     <Layout>
       <div>
         {projectsData.map((project) => (
-          <div>
+          <div key={project.id}>
             <h3>{project.name}</h3>
             <p>{project.description}</p>
           </div>

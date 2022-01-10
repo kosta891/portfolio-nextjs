@@ -2,11 +2,15 @@ import { useTheme } from 'next-themes';
 import Head from 'next/head';
 import Image from 'next/image';
 import { useContext, useEffect, useState } from 'react';
+import FeaturedProjects from '../components/FeaturedProjects';
 import Layout from '../components/UI/Layout';
 import PortfolioContext from '../context/context';
 import { social } from '../utils/constants';
 import { projectsData } from '../utils/projectsData';
 
+//text-gray-600 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-500 transition-all
+
+// text-gray-700 dark:text-gray-200 mb-4
 export default function Home({ title }) {
   return (
     <Layout>
@@ -33,7 +37,7 @@ export default function Home({ title }) {
                     href={link.url}
                     target='_blank'
                     rel='noopener noreferrer'
-                    className=' hover:text-gray-700 dark:hover:text-gray-300 transition-all text-2xl sm:text-3xl'
+                    className=' text-gray-600 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-500 transition-all text-2xl sm:text-3xl'
                   >
                     {link.icon}
                   </a>
@@ -52,16 +56,7 @@ export default function Home({ title }) {
             />
           </div>
         </div>
-        <div>
-          {/* featured projects */}
-          {projectsData.map((project) => (
-            <div>
-              <h3>{project.name}</h3>
-              <p>{project.description}</p>
-            </div>
-          ))}
-        </div>
-        <footer>Footer</footer>
+        <FeaturedProjects />
       </div>
     </Layout>
   );

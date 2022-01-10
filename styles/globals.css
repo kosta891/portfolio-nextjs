@@ -64,10 +64,9 @@ a {
   text-decoration: none;
   text-transform: capitalize;
 }
-hr {
-  border: none;
-  border-top: 1px solid var(--clr-grey-8);
-}
+
+/* width */
+
 /* h1,
 h2,
 h3,

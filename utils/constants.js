@@ -34,6 +34,6 @@ export const social = [
     id: 4,
     url: 'mailto:milos@miloskostadinovic.com',
     icon: <MdOutlineAlternateEmail />,
-    text: 'gitHub',
+    text: 'email',
   },
 ];
