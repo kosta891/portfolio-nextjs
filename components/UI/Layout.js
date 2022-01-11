@@ -14,7 +14,7 @@ export default function Layout({ title, description, keywords, children }) {
       </Head>
 
       <Navbar />
-      <main>{children}</main>
+      <main className='page'>{children}</main>
       <Footer />
     </div>
   );
