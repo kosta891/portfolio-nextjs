@@ -1,3 +1,4 @@
+import Head from 'next/head';
 import { useContext } from 'react';
 import { useEffect, useState } from 'react/cjs/react.development';
 import Projects from '../../components/Projects';
@@ -17,6 +18,9 @@ export default function projects() {
   console.log(dataD);
   return (
     <Layout>
+      <Head>
+        <title>Projects | Miloš Kostadinović</title>
+      </Head>
       <h1 className='font-bold text-3xl md:text-5xl tracking-tight  mb-12'>
         All Projects
       </h1>

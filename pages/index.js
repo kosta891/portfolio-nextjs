@@ -10,6 +10,7 @@ import Layout from '../components/UI/Layout';
 import PortfolioContext from '../context/context';
 import { social } from '../utils/constants';
 import { projectsData } from '../utils/projectsData';
+import Skills from '../components/Skills';
 
 //text-gray-600 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-500 transition-all
 
@@ -19,6 +20,7 @@ export default function Home({ title }) {
   const [dataD, setDataD] = useState([]);
 
   useEffect(() => {
+    //await ...3 project
     const data = projectsData;
     setDataD(data);
   }, []);
@@ -27,8 +29,8 @@ export default function Home({ title }) {
 
   return (
     <Layout>
-      <div className='flex flex-col'>
-        <div className='flex flex-col-reverse sm:flex-row justify-between sm:'>
+      <div className='flex flex-col '>
+        <div className='flex flex-col-reverse sm:flex-row justify-between '>
           <div className='pr-8'>
             <h1 className='font-bold text-3xl md:text-5xl tracking-tight mb-2 '>
               Miloš Kostadinović
@@ -59,25 +61,32 @@ export default function Home({ title }) {
             </ul>
           </div>
 
-          <div className='w-24 sm:w-44'>
+          <div className='w-28 sm:w-56'>
+            {/* filter grayscale */}
             <Image
               src='/images/avatar.jpg'
               alt='Miloš Kostadinović'
-              width={125}
-              height={125}
-              className=' rounded-full object-cover object-center filter grayscale sm:h-80'
+              width={250}
+              height={250}
+              className=' rounded-full object-cover object-center   sm:h-80'
             />
           </div>
         </div>
-        <Projects data={dataD} />
 
-        {/* hover:scale-105 transition-all w-36 */}
-        <Link href='/projects'>
-          <a className=''>
-            See All Projects
-            <BsArrowRight className='inline text-2xl ml-1' />
-          </a>
-        </Link>
+        <Skills />
+
+        <section>
+          <h3 className='text-2xl font-semibold'>Featured Projects</h3>
+          <Projects data={dataD} />
+
+          {/* hover:scale-105 transition-all w-36 */}
+          <Link href='/projects'>
+            <a className=''>
+              See All Projects
+              <BsArrowRight className='inline text-2xl ml-1' />
+            </a>
+          </Link>
+        </section>
       </div>
     </Layout>
   );

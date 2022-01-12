@@ -20,4 +20,11 @@ export const projectsData = [
       'Deskripcija projekta3 Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maxime, nesciunt.dfgdfgdfgdfgdgfdfgdfgdfg sdfdgsfdsgfgdsfsdg fdgsfdgsfdgsfdgsdfg',
     imageUrl: '/images/projects/project-3.png',
   },
+  {
+    id: 4,
+    name: 'projekat4',
+    description:
+      'Deskripcija projekta3 Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maxime, nesciunt.dfgdfgdfgdfgdgfdfgdfgdfg sdfdgsfdsgfgdsfsdg fdgsfdgsfdgsfdgsdfg',
+    imageUrl: '/images/projects/project-3.png',
+  },
 ];
