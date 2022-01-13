@@ -1,23 +1,18 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { BsArrowRight } from 'react-icons/bs';
+import { useEffect, useState } from 'react/cjs/react.development';
 
 export default function Projects({ data }) {
-  console.log(data);
   return (
     <section>
       {data.map((project, inx) => {
-        let reverse = 'flex-row-reverse';
-        console.log(reverse);
-        if (inx % 2 === 0) {
-          reverse = 'flex-row';
-        } else {
-          reverse;
-        }
         return (
           <div
-            key={project.name}
-            className={`flex flex-col sm:flex sm:${reverse} sm:justify-between rounded mt-10 mb-6 `}
+            key={project.id}
+            className={`flex flex-col ${
+              project.id % 2 === 0 ? 'sm:flex-row-reverse' : 'sm:flex-row'
+            } sm:justify-between rounded mt-12 sm:mt-16 mb-6 `}
           >
             {/* grayscale hover:grayscale-0 transition-all*/}
             <Link href={`/projects/${project.name}`}>
@@ -35,7 +30,7 @@ export default function Projects({ data }) {
                 />
               </a>
             </Link>
-            <div className='rounded w-full sm:w-1/2 sm:ml-4'>
+            <div className='rounded w-full sm:w-1/2 sm:ml-4 sm:mr-1'>
               <h3 className='text-gray-700 dark:text-gray-200 font-medium mb-4 mt-1'>
                 {project.name}
               </h3>

@@ -1,20 +1,10 @@
 import { FaFacebook, FaGithub, FaInstagram } from 'react-icons/fa';
 import { MdOutlineAlternateEmail } from 'react-icons/md';
 
-import {
-  SiNextdotjs,
-  SiReact,
-  SiJavascript,
-  SiHtml5,
-  SiGatsby,
-  SiMongodb,
-} from 'react-icons/si';
+import { SiNextdotjs, SiReact, SiGatsby, SiMongodb } from 'react-icons/si';
 
-import { FaReact, FaHtml5, FaCss3Alt, FaCss3, FaGit } from 'react-icons/fa';
+import { FaHtml5, FaCss3Alt } from 'react-icons/fa';
 import { DiGit, DiJavascript1 } from 'react-icons/di';
-import { IoLogoJavascript } from 'react-icons/io';
-import { GrGatsbyjs } from 'react-icons/gr';
-import { RiGatsbyLine } from 'react-icons/ri';
 
 export const navLinks = [
   { id: 1, text: 'home', url: '/' },
@@ -54,19 +44,15 @@ export const social = [
 
 export const skills = [
   { id: 1, text: 'NEXTJS', icon: <SiNextdotjs /> },
-  <SiReact />,
-  <FaReact />,
-  <DiGit />,
-  <FaGit />,
-  <DiJavascript1 />,
-  <IoLogoJavascript />,
-  <SiJavascript />,
-  <FaHtml5 />,
-  <SiHtml5 />,
-  <FaCss3Alt />,
-  <FaCss3 />,
-  <GrGatsbyjs />,
-  <RiGatsbyLine />,
-  <SiGatsby />,
-  <SiMongodb />,
+  { id: 2, text: 'ReactJs', icon: <SiReact /> },
+
+  { id: 4, text: 'JavaScript', icon: <DiJavascript1 /> },
+
+  { id: 5, text: 'HTML', icon: <FaHtml5 /> },
+
+  { id: 6, text: 'Css', icon: <FaCss3Alt /> },
+
+  { id: 7, text: 'Gatsby', icon: <SiGatsby /> },
+  { id: 8, text: 'MongoDB', icon: <SiMongodb /> },
+  { id: 3, text: 'Git', icon: <DiGit /> },
 ];
