@@ -48,6 +48,7 @@ body {
   top: 0;
   transition: opacity 0.3s ease, transform 0.3s ease;
 }
+
 .mobile-menu-rendered {
   opacity: 1;
 }
@@ -60,6 +61,7 @@ body {
   height: 40px;
   position: relative;
 }
+
 .active {
   font-weight: 700;
 }

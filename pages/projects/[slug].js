@@ -5,7 +5,7 @@ export default function singleProject() {
   return (
     <Layout>
       <Head>
-        <title>porjeiej</title>
+        <title>single project</title>
       </Head>
       <section>projekat single</section>
     </Layout>

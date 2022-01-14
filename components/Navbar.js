@@ -38,7 +38,7 @@ export default function Navbar() {
           </ul>
 
           {isNavOpen && (
-            <ul className=' min-w-full top:0 flex flex-col absolute bg-white dark:bg-theme-black mobile-menu mobile-menu-rendered'>
+            <ul className=' min-w-full top:0 flex flex-col absolute bg-white dark:bg-theme-black z-50 mobile-menu mobile-menu-rendered'>
               {navLinks.map((link) => (
                 <li
                   key={link.id}
