@@ -12,7 +12,7 @@ export default function Projects({ data }) {
             key={project.id}
             className={`flex flex-col ${
               project.id % 2 === 0 ? 'md:flex-row-reverse' : 'md:flex-row'
-            } md:justify-between rounded mt-12 md:mt-16 mb-6 `}
+            } md:justify-between rounded mt-16 md:mt-20  `}
           >
             {/* grayscale hover:grayscale-0 transition-all*/}
             <Link href={`/projects/${project.name}`}>
@@ -35,9 +35,11 @@ export default function Projects({ data }) {
                 {project.name}
               </h3>
               <p className='text-gray-600 dark:text-gray-400 md:mb-8 mb-4'>
-                {project.description}
+                {project.description.length > 100
+                  ? project.description.substring(0, 100) + '...'
+                  : project.description}
               </p>
-              <Link href={`/projects/${project.name}`}>
+              <Link href={`/projects/${project.slug}`}>
                 <a className='rounded  text-gray-600 dark:text-gray-300 bg-gray-200 dark:bg-gray-600 hover:bg-gray-300 dark:hover:bg-gray-700 px-3 md:py-2 py-1 transition-all'>
                   More details
                 </a>

@@ -25,8 +25,6 @@ export default function Home({ title }) {
     setDataD(data);
   }, []);
 
-  console.log(dataD);
-
   return (
     <Layout>
       <div className='flex flex-col '>
@@ -77,11 +75,12 @@ export default function Home({ title }) {
 
         <section>
           <h3 className='text-2xl font-semibold'>Featured Projects</h3>
-          <Projects data={dataD} />
+          <Projects data={dataD.slice(0, 3)} />
 
           {/* hover:scale-105 transition-all w-36 */}
+          <div className='mt-8 md:mt-16'></div>
           <Link href='/projects'>
-            <a className=''>
+            <a className='mt-8'>
               See All Projects
               <BsArrowRight className='inline text-2xl ml-1' />
             </a>

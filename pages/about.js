@@ -48,9 +48,8 @@ export default function about() {
                 and articles. New to Gatsby and Tailwindcss.
               </p>
               <p className='mt-2 md:mt-6'>
-                Welcome to my website, where I share what I'm learning about and
-                building apps. Becoming a better developer and growing a career
-                in tech are my main goals. Let’s Make the Web faster.
+                Becoming a better developer and growing a career in tech are my
+                main goals. Let’s Make the Web.
               </p>
             </div>
           </div>

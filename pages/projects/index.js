@@ -15,7 +15,6 @@ export default function projects() {
     setDataD(data);
   }, []);
 
-  console.log(dataD);
   return (
     <Layout>
       <Head>
