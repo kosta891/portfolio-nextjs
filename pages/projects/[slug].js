@@ -5,9 +5,12 @@ import Layout from '../../components/UI/Layout';
 import { projectsData } from '../../utils/projectsData';
 import Image from 'next/image';
 import { FaGithub } from 'react-icons/fa';
+import useSwr from 'swr';
+import { API_URL } from '../../utils/urls';
+import axios from 'axios';
 
 export default function singleProject({ project }) {
-  const { id, name, slug, description, imageUrl, github, live } = project;
+  const { id, name, slug, description, github, live } = project;
   console.log(project);
   return (
     <Layout>
@@ -21,14 +24,14 @@ export default function singleProject({ project }) {
         <p className='mt-2 md:mt-6 mb-6 md:mb-8'>{description}</p>
 
         <div>
-          <Image
+          {/* <Image
             src={imageUrl}
             width={720}
             height={500}
             className='w-full h-full'
             objectFit='cover'
             objectPosition='center'
-          />
+          /> */}
         </div>
         <div className='mt-6 md:mt-12'>
           {github && (
@@ -55,8 +58,11 @@ export default function singleProject({ project }) {
   );
 }
 export async function getStaticPaths() {
-  const paths = await projectsData.map((project) => ({
-    params: { slug: project.slug },
+  const { data } = await axios(`${API_URL}/projects`);
+  const project = await data.data;
+
+  const paths = project.map((item) => ({
+    params: { slug: item.attributes.slug },
   }));
 
   return {
@@ -67,10 +73,13 @@ export async function getStaticPaths() {
 
 export async function getStaticProps({ params: { slug } }) {
   console.log(slug);
-  // const router = useRouter();
-  // const { slug } = router.query;
-  const project = projectsData.filter((data) => data.slug === slug);
+
+  const { data } = await axios(
+    `${API_URL}/projects?slug=${slug}&populate=image`
+  );
+  const project = await data.data;
+
   return {
-    props: { project: project[0] },
+    props: { project: project },
   };
 }

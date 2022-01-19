@@ -1,19 +1,14 @@
+import axios from 'axios';
 import Head from 'next/head';
-import { useContext } from 'react';
-import { useEffect, useState } from 'react/cjs/react.development';
+
 import Projects from '../../components/Projects';
 
 import Layout from '../../components/UI/Layout';
-import PortfolioContext from '../../context/context';
-import { projectsData } from '../../utils/projectsData';
 
-export default function projects() {
-  const [dataD, setDataD] = useState([]);
+import { API_URL } from '../../utils/urls';
 
-  useEffect(() => {
-    const data = projectsData;
-    setDataD(data);
-  }, []);
+export default function projects({ projects }) {
+  console.log(projects);
 
   return (
     <Layout>
@@ -23,7 +18,17 @@ export default function projects() {
       <h1 className='font-bold text-3xl md:text-5xl tracking-tight  mb-12'>
         All Projects
       </h1>
-      <Projects data={dataD} />
+      <Projects data={projects} />
     </Layout>
   );
+}
+
+export async function getStaticProps() {
+  const { data } = await axios(`${API_URL}/projects?_limit=3&populate=image`);
+  const projects = await data.data;
+  console.log(projects);
+  return {
+    props: { projects },
+    revalidate: 3600,
+  };
 }

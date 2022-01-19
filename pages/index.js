@@ -11,7 +11,7 @@ import PortfolioContext from '../context/context';
 import { social } from '../utils/constants';
 import { projectsData } from '../utils/projectsData';
 import Skills from '../components/Skills';
-
+//http://localhost:1337/api/projects
 //text-gray-600 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-500 transition-all
 
 // text-gray-700 dark:text-gray-200 mb-4
