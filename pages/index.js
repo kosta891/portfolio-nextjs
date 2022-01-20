@@ -1,30 +1,22 @@
-import { useTheme } from 'next-themes';
 import Head from 'next/head';
 import Image from 'next/image';
 import Link from 'next/link';
-import { useContext, useEffect, useState } from 'react';
-import { FaArrowAltCircleRight } from 'react-icons/fa';
+
 import { BsArrowRight } from 'react-icons/bs';
 import Projects from '../components/Projects';
 import Layout from '../components/UI/Layout';
 import PortfolioContext from '../context/context';
 import { social } from '../utils/constants';
-import { projectsData } from '../utils/projectsData';
+import axios from 'axios';
+import { API_URL } from '../utils/urls';
 import Skills from '../components/Skills';
+
 //http://localhost:1337/api/projects
 //text-gray-600 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-500 transition-all
 
 // text-gray-700 dark:text-gray-200 mb-4
 
-export default function Home({ title }) {
-  const [dataD, setDataD] = useState([]);
-
-  useEffect(() => {
-    //await ...3 project
-    const data = projectsData;
-    setDataD(data);
-  }, []);
-
+export default function Home({ projects }) {
   return (
     <Layout>
       <div className='flex flex-col '>
@@ -75,7 +67,7 @@ export default function Home({ title }) {
 
         <section>
           <h3 className='text-2xl font-semibold'>Featured Projects</h3>
-          <Projects data={dataD.slice(0, 3)} />
+          <Projects data={projects} />
 
           {/* hover:scale-105 transition-all w-36 */}
           <div className='mt-8 md:mt-16'></div>
@@ -89,4 +81,15 @@ export default function Home({ title }) {
       </div>
     </Layout>
   );
+}
+export async function getStaticProps() {
+  const { data } = await axios(
+    `${API_URL}/projects?pagination[start]=0&pagination[limit]=3&populate=image`
+  );
+  const projects = await data.data;
+  console.log(projects);
+  return {
+    props: { projects },
+    revalidate: 3600,
+  };
 }

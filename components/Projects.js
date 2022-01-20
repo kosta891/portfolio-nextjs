@@ -1,14 +1,10 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import { BsArrowRight } from 'react-icons/bs';
-import { useEffect, useState } from 'react/cjs/react.development';
 
 export default function Projects({ data }) {
-  console.log(data);
   return (
     <section>
       {data.map((project) => {
-        console.log(project);
         const {
           name,
           description,
@@ -20,7 +16,7 @@ export default function Projects({ data }) {
             },
           },
         } = project.attributes;
-        console.log(project);
+
         return (
           <div
             key={project.id}

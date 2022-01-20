@@ -8,8 +8,6 @@ import Layout from '../../components/UI/Layout';
 import { API_URL } from '../../utils/urls';
 
 export default function projects({ projects }) {
-  console.log(projects);
-
   return (
     <Layout>
       <Head>
@@ -24,9 +22,9 @@ export default function projects({ projects }) {
 }
 
 export async function getStaticProps() {
-  const { data } = await axios(`${API_URL}/projects?_limit=3&populate=image`);
+  const { data } = await axios(`${API_URL}/projects?&populate=image`);
   const projects = await data.data;
-  console.log(projects);
+
   return {
     props: { projects },
     revalidate: 3600,

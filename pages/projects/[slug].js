@@ -1,16 +1,26 @@
 import Head from 'next/head';
-import { useRouter } from 'next/router';
-import Project from '../../components/Project';
+
 import Layout from '../../components/UI/Layout';
-import { projectsData } from '../../utils/projectsData';
+
 import Image from 'next/image';
-import { FaGithub } from 'react-icons/fa';
-import useSwr from 'swr';
+
 import { API_URL } from '../../utils/urls';
 import axios from 'axios';
 
 export default function singleProject({ project }) {
-  const { id, name, slug, description, github, live } = project;
+  const {
+    name,
+    description,
+    github,
+    livesite,
+    createdAt,
+    image: {
+      data: {
+        attributes: { formats },
+      },
+    },
+  } = project.attributes;
+
   console.log(project);
   return (
     <Layout>
@@ -24,14 +34,15 @@ export default function singleProject({ project }) {
         <p className='mt-2 md:mt-6 mb-6 md:mb-8'>{description}</p>
 
         <div>
-          {/* <Image
-            src={imageUrl}
+          <Image
+            src={formats.large.url}
+            alt={name}
             width={720}
             height={500}
             className='w-full h-full'
             objectFit='cover'
             objectPosition='center'
-          /> */}
+          />
         </div>
         <div className='mt-6 md:mt-12'>
           {github && (
@@ -43,9 +54,9 @@ export default function singleProject({ project }) {
               github
             </a>
           )}
-          {live && (
+          {livesite && (
             <a
-              href={live}
+              href={livesite}
               className='mr-4 rounded text-gray-600 dark:text-gray-300 bg-gray-200 dark:bg-gray-600 hover:bg-gray-300 dark:hover:bg-gray-700 px-3 md:py-2 py-1 transition-all'
               target='_blank'
             >
@@ -72,14 +83,12 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params: { slug } }) {
-  console.log(slug);
-
   const { data } = await axios(
-    `${API_URL}/projects?slug=${slug}&populate=image`
+    `${API_URL}/projects?filters[slug][$eq]=${slug}&populate=image&`
   );
   const project = await data.data;
 
   return {
-    props: { project: project },
+    props: { project: project[0] },
   };
 }
