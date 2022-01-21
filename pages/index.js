@@ -5,7 +5,7 @@ import Link from 'next/link';
 import { BsArrowRight } from 'react-icons/bs';
 import Projects from '../components/Projects';
 import Layout from '../components/UI/Layout';
-import PortfolioContext from '../context/context';
+
 import { social } from '../utils/constants';
 import axios from 'axios';
 import { API_URL } from '../utils/urls';

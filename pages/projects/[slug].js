@@ -1,13 +1,18 @@
-import Head from 'next/head';
-
-import Layout from '../../components/UI/Layout';
-
-import Image from 'next/image';
-
-import { API_URL } from '../../utils/urls';
 import axios from 'axios';
 
+import Head from 'next/head';
+import Image from 'next/image';
+
+import Layout from '../../components/UI/Layout';
+import { API_URL } from '../../utils/urls';
+
+import NotFoundPage from '../404';
+
 export default function singleProject({ project }) {
+  if (!project) {
+    return <NotFoundPage />;
+  }
+
   const {
     name,
     description,
@@ -68,6 +73,7 @@ export default function singleProject({ project }) {
     </Layout>
   );
 }
+
 export async function getStaticPaths() {
   const { data } = await axios(`${API_URL}/projects`);
   const project = await data.data;
@@ -86,9 +92,10 @@ export async function getStaticProps({ params: { slug } }) {
   const { data } = await axios(
     `${API_URL}/projects?filters[slug][$eq]=${slug}&populate=image&`
   );
+
   const project = await data.data;
 
   return {
-    props: { project: project[0] },
+    props: { project: project[0] || null },
   };
 }
