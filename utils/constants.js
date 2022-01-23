@@ -15,18 +15,18 @@ export const navLinks = [
 ];
 
 export const social = [
-  {
-    id: 1,
-    url: 'https://www.facebook.com/milos.kostadinovic.961',
-    icon: <FaFacebook />,
-    text: 'facebook',
-  },
-  {
-    id: 2,
-    url: 'https://www.instagram.com/kosta891/?hl=sr',
-    icon: <FaInstagram />,
-    text: 'instagram',
-  },
+  // {
+  //   id: 1,
+  //   url: 'https://www.facebook.com/milos.kostadinovic.961',
+  //   icon: <FaFacebook />,
+  //   text: 'facebook',
+  // },
+  // {
+  //   id: 2,
+  //   url: 'https://www.instagram.com/kosta891/?hl=sr',
+  //   icon: <FaInstagram />,
+  //   text: 'instagram',
+  // },
 
   {
     id: 3,

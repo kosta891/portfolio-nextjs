@@ -1,4 +1,3 @@
-import Head from 'next/head';
 import Image from 'next/image';
 import Link from 'next/link';
 
@@ -10,11 +9,6 @@ import { social } from '../utils/constants';
 import axios from 'axios';
 import { API_URL } from '../utils/urls';
 import Skills from '../components/Skills';
-
-//http://localhost:1337/api/projects
-//text-gray-600 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-500 transition-all
-
-// text-gray-700 dark:text-gray-200 mb-4
 
 export default function Home({ projects }) {
   return (
@@ -52,13 +46,14 @@ export default function Home({ projects }) {
           </div>
 
           <div className='w-28 sm:w-56'>
-            {/* filter grayscale */}
             <Image
               src='/images/avatar.jpg'
               alt='Miloš Kostadinović'
               width={250}
               height={250}
-              className=' rounded-full object-cover object-center   sm:h-80'
+              className=' rounded-full object-cover object-center sm:h-80'
+              blurDataURL='/images/avatar.jpg'
+              placeholder='blur'
             />
           </div>
         </div>
@@ -69,7 +64,6 @@ export default function Home({ projects }) {
           <h3 className='text-2xl font-semibold'>Featured Projects</h3>
           <Projects data={projects} />
 
-          {/* hover:scale-105 transition-all w-36 */}
           <div className='mt-8 md:mt-16'></div>
           <Link href='/projects'>
             <a className='mt-8'>
@@ -84,10 +78,10 @@ export default function Home({ projects }) {
 }
 export async function getStaticProps() {
   const { data } = await axios(
-    `${API_URL}/projects?pagination[start]=0&pagination[limit]=3&populate=image`
+    `${API_URL}/projects?filters[featured][$eq]=true&populate=image`
   );
   const projects = await data.data;
-  console.log(projects);
+
   return {
     props: { projects },
     revalidate: 3600,

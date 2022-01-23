@@ -3,7 +3,7 @@ export default function Footer() {
   return (
     <footer className='mt-8 mb-16'>
       <hr className=' border-1 border-gray-200 dark:border-gray-600 mb-8' />
-      <h3 className='text-gray-700 dark:text-gray-200'>Contact me</h3>
+      <h3 className='text-gray-700 dark:text-gray-200'>Links</h3>
       {
         <ul className=' sm:flex sm:flex-row justify-start items-center  mt-6 mb-4'>
           {social.map((link) => (

@@ -2,6 +2,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 
 export default function Projects({ data }) {
+  console.log(data);
   return (
     <section>
       {data.map((project) => {

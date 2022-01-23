@@ -1,5 +1,4 @@
 import axios from 'axios';
-import Head from 'next/head';
 
 import Projects from '../../components/Projects';
 
@@ -9,10 +8,10 @@ import { API_URL } from '../../utils/urls';
 
 export default function projects({ projects }) {
   return (
-    <Layout>
-      <Head>
-        <title>Projects | Miloš Kostadinović</title>
-      </Head>
+    <Layout
+      title='Projects | Miloš Kostadinović'
+      description='This is my projects i made so far. Each project was made with love and a lot attention to details.'
+    >
       <h1 className='font-bold text-3xl md:text-5xl tracking-tight  mb-12'>
         All Projects
       </h1>

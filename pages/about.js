@@ -1,12 +1,14 @@
 import Image from 'next/image';
-import { FaFileDownload } from 'react-icons/fa';
-import { useContext, useEffect } from 'react/cjs/react.development';
+
 import Layout from '../components/UI/Layout';
-import PortfolioContext from '../context/context';
 
 export default function about() {
   return (
-    <Layout>
+    <Layout
+      title='About | Miloš Kostadinović'
+      description="I'm a Frontend Developer. Currently developing apps and websites
+    on React and NextJs. Becoming a better developer is my main goal."
+    >
       <section>
         <div className='flex flex-col md:flex-row'>
           <div className='w-40 md:w-1/2'>
@@ -17,6 +19,8 @@ export default function about() {
               objectPosition={'center'}
               objectFit='cover'
               className='rounded-2xl'
+              blurDataURL='/images/avatar.jpg'
+              placeholder='blur'
             />
           </div>
           <div className='w-full md:w-1/2 '>
@@ -24,28 +28,11 @@ export default function about() {
               About me
             </h1>
 
-            {/*  */}
-            <div className='flex items-center'>
-              <h3 className='text-2xl'>Resume</h3>
-              <button
-                //href='/images/projects/msauto.jpg' //ne valja ovako mora api
-                target='_blank'
-                rel='noreferrer nofollow'
-                className='ml-4 text-2xl'
-                onClick={() =>
-                  window.open('/images/projects/msauto.jpg', '_blank')
-                }
-              >
-                <FaFileDownload />
-              </button>
-            </div>
-            {/*  */}
-
             <div className='mt-4 md:mt-6'>
               <p className='mt-2 md:mt-6'>
                 I'm a Frontend Developer. Currently developing apps and websites
                 on React and NextJs. In my free time reading developers blogs
-                and articles. New to Gatsby and Tailwindcss.
+                and articles. New to Gatsby and Tailwind Css.
               </p>
               <p className='mt-2 md:mt-6'>
                 Becoming a better developer and growing a career in tech are my

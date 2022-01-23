@@ -1,6 +1,5 @@
 import axios from 'axios';
 
-import Head from 'next/head';
 import Image from 'next/image';
 
 import Layout from '../../components/UI/Layout';
@@ -28,10 +27,7 @@ export default function singleProject({ project }) {
 
   console.log(project);
   return (
-    <Layout>
-      <Head>
-        <title>{name}</title>
-      </Head>
+    <Layout title={`${name} | Miloš Kostadinović`} description={description}>
       <section>
         <h1 className='font-bold text-3xl md:text-5xl tracking-tight mb-12 '>
           {name}
@@ -84,7 +80,7 @@ export async function getStaticPaths() {
 
   return {
     paths,
-    fallback: true,
+    fallback: 'blocking',
   };
 }
 

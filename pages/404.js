@@ -1,10 +1,14 @@
 import Link from 'next/link';
 import { BsArrowLeft } from 'react-icons/bs';
 import Layout from '../components/UI/Layout';
+import Head from 'next/head';
 
 export default function NotFoundPage() {
   return (
-    <Layout>
+    <Layout
+      title={'Page Not Found'}
+      description='This page cannot be found or does not exist.'
+    >
       <h1 className='font-bold text-3xl md:text-5xl tracking-tight mb-2'>
         Page not found! : (
       </h1>
