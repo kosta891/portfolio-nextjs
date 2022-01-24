@@ -2,3 +2,5 @@ User-agent: *
 Allow: /
 
 Sitemap: https://www.miloskostadinovic.com/sitemap.xml
+
+Disallow: /api/*

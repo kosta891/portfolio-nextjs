@@ -5,7 +5,7 @@ export default function Projects({ data }) {
   console.log(data);
   return (
     <section>
-      {data.map((project) => {
+      {data.map((project, inx) => {
         const {
           name,
           description,
@@ -22,7 +22,7 @@ export default function Projects({ data }) {
           <div
             key={project.id}
             className={`flex flex-col ${
-              project.id % 2 === 0 ? 'md:flex-row-reverse' : 'md:flex-row'
+              (inx + 1) % 2 === 0 ? 'md:flex-row-reverse' : 'md:flex-row'
             } md:justify-between rounded mt-16 md:mt-20  `}
           >
             <Link href={`/projects/${slug}`}>

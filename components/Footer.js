@@ -21,9 +21,6 @@ export default function Footer() {
           ))}
         </ul>
       }
-      {/* <p className='text-gray-600 dark:text-gray-400'>
-        All rights reserved &copy; {new Date().getFullYear()}.
-      </p> */}
     </footer>
   );
 }
