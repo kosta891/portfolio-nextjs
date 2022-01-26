@@ -27,7 +27,7 @@ export default function Blog({ blogs }) {
         </h1>
         <p>{date}</p>
         <div className='mt-2 md:mt-6 mb-6 md:mb-8'>
-          <ReactMarkdown children={description} className='reactMarkdown' />
+          <ReactMarkdown className='reactMarkdown'>{description}</ReactMarkdown>
         </div>
       </section>
 

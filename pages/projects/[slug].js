@@ -51,6 +51,7 @@ export default function singleProject({ project }) {
               href={github}
               className='mr-4 rounded text-gray-600 dark:text-gray-300 bg-gray-200 dark:bg-gray-600 hover:bg-gray-300 dark:hover:bg-gray-700 px-3 md:py-2 py-1 transition-all'
               target='_blank'
+              rel='noreferrer'
             >
               github
             </a>
@@ -60,6 +61,7 @@ export default function singleProject({ project }) {
               href={livesite}
               className='mr-4 rounded text-gray-600 dark:text-gray-300 bg-gray-200 dark:bg-gray-600 hover:bg-gray-300 dark:hover:bg-gray-700 px-3 md:py-2 py-1 transition-all'
               target='_blank'
+              rel='noreferrer'
             >
               Site
             </a>

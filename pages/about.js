@@ -13,10 +13,11 @@ export default function about() {
         <div className='flex flex-col md:flex-row'>
           <div className='w-40 md:w-1/2'>
             <Image
-              src={'/images/avatar.jpg'}
+              alt='Miloš Kostadinović'
+              src='/images/avatar.jpg'
               width={300}
               height={350}
-              objectPosition={'center'}
+              objectPosition='center'
               objectFit='cover'
               className='rounded-2xl'
               blurDataURL='/images/avatar.jpg'
@@ -30,9 +31,9 @@ export default function about() {
 
             <div className='mt-4 md:mt-6'>
               <p className='mt-2 md:mt-6'>
-                I'm a Frontend Developer. Currently developing apps and websites
-                on React and NextJs. In my free time reading developers blogs
-                and articles. New to Gatsby and Tailwind Css.
+                I&apos;m a Frontend Developer. Currently developing apps and
+                websites on React and NextJs. In my free time reading developers
+                blogs and articles. New to Gatsby and Tailwind Css.
               </p>
               <p className='mt-2 md:mt-6'>
                 Becoming a better developer and growing a career in tech are my

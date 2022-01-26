@@ -13,7 +13,7 @@ export default function NotFoundPage() {
       </h1>
       <div className='mt-8 '>
         <div className='w-full md:w-96 items-center'>
-          <img src='/images/404.png' />
+          <img src='/images/404.png' alt='not found' />
         </div>
         <Link href='/'>
           <a className='mt-8'>
