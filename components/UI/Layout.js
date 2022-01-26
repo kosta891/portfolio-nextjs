@@ -21,5 +21,5 @@ export default function Layout({ title, description, children }) {
 Layout.defaultProps = {
   title: 'Miloš Kostadinović - Web Developer',
   description:
-    'Miloš Kostadinović personal portfolio website. Frontend Web developer.  ',
+    'Miloš Kostadinović personal portfolio website. Frontend Web developer.',
 };

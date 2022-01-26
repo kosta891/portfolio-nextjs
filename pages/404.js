@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import { BsArrowLeft } from 'react-icons/bs';
 import Layout from '../components/UI/Layout';
+import Image from 'next/image';
 
 export default function NotFoundPage() {
   return (
@@ -13,7 +14,12 @@ export default function NotFoundPage() {
       </h1>
       <div className='mt-8 '>
         <div className='w-full md:w-96 items-center'>
-          <img src='/images/404.png' alt='not found' />
+          <Image
+            src='/images/404.png'
+            alt='not found'
+            width={500}
+            height={500}
+          />
         </div>
         <Link href='/'>
           <a className='mt-8'>
