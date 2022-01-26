@@ -15,13 +15,7 @@ export default function blog({ blogs }) {
       <h1 className='font-bold text-3xl md:text-5xl tracking-tight mb-2'>
         Blog
       </h1>
-      {/* <div className='mt-8 md:mt-16'>
-        <Image
-          src={'/images/under-construction.png'}
-          width={500}
-          height={500}
-        />
-      </div> */}
+
       <Blogs data={blogs} />
     </Layout>
   );

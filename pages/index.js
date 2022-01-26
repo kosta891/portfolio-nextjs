@@ -64,13 +64,14 @@ export default function Home({ projects }) {
           <h3 className='text-2xl font-semibold'>Featured Projects</h3>
           <Projects data={projects} />
 
-          <div className='mt-8 md:mt-16'></div>
-          <Link href='/projects'>
-            <a className='mt-8'>
-              See All Projects
-              <BsArrowRight className='inline text-2xl ml-1' />
-            </a>
-          </Link>
+          <div className='mt-8 md:mt-16'>
+            <Link href='/projects'>
+              <a className='mt-8'>
+                See All Projects
+                <BsArrowRight className='inline text-2xl ml-1' />
+              </a>
+            </Link>
+          </div>
         </section>
       </div>
     </Layout>

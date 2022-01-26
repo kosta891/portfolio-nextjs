@@ -1,14 +1,12 @@
 import axios from 'axios';
+import Link from 'next/link';
+import { BsArrowLeft } from 'react-icons/bs';
 import ReactMarkdown from 'react-markdown';
 import Layout from '../../components/UI/Layout';
 import { API_URL } from '../../utils/urls';
-import rehypeHighlight from 'rehype-highlight';
-
-// import classes from '../../styles/react-markdown.module.css';
-// import '../../styles/reactMarkdown.module.css';
+import NotFoundPage from '../404';
 
 export default function Blog({ blogs }) {
-  console.log(blogs);
   if (!blogs || blogs.length === 0) {
     return <NotFoundPage />;
   }
@@ -20,6 +18,7 @@ export default function Blog({ blogs }) {
     day: '2-digit',
     year: 'numeric',
   });
+
   return (
     <Layout title={`${name} | Miloš Kostadinović`} description={summary}>
       <section>
@@ -28,13 +27,16 @@ export default function Blog({ blogs }) {
         </h1>
         <p>{date}</p>
         <div className='mt-2 md:mt-6 mb-6 md:mb-8'>
-          <ReactMarkdown
-            children={description}
-            rehypePlugins={[rehypeHighlight]}
-            className='reactMarkdown'
-          />
+          <ReactMarkdown children={description} className='reactMarkdown' />
         </div>
       </section>
+
+      <Link href='/blog'>
+        <a className='mt-8'>
+          <BsArrowLeft className='inline text-2xl mr-1' />
+          Back to Blogs
+        </a>
+      </Link>
     </Layout>
   );
 }
@@ -60,6 +62,7 @@ export async function getStaticProps({ params: { slug } }) {
 
   const blogs = await data.data;
 
+  console.log(blogs);
   return {
     props: { blogs: blogs[0] || null },
   };

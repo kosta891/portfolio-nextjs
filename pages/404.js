@@ -1,7 +1,6 @@
 import Link from 'next/link';
 import { BsArrowLeft } from 'react-icons/bs';
 import Layout from '../components/UI/Layout';
-import Head from 'next/head';
 
 export default function NotFoundPage() {
   return (

@@ -1,5 +1,4 @@
 import Link from 'next/link';
-import ReactMarkdown from 'react-markdown';
 
 export default function Blogs({ data }) {
   console.log(data);
@@ -18,7 +17,7 @@ export default function Blogs({ data }) {
           <div key={blog.id}>
             <Link href={`/blog/${slug}`}>
               <a className='opacity-95 hover:opacity-100 transition-all'>
-                <div className='md:ml-4 md:mr-1'>
+                <div>
                   <div className='flex-column md:flex md:justify-between'>
                     <h3 className='text-gray-700 dark:text-gray-200 font-medium '>
                       {name}

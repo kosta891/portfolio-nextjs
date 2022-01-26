@@ -5,7 +5,7 @@ import Navbar from '../Navbar';
 
 export default function Layout({ title, description, children }) {
   return (
-    <div className='min-h-screen max-w-3xl mx-auto px-6 '>
+    <div className='max-w-3xl mx-auto px-6 '>
       <Head>
         <title>{title}</title>
         <meta name='description' content={description} />
@@ -20,5 +20,6 @@ export default function Layout({ title, description, children }) {
 
 Layout.defaultProps = {
   title: 'Miloš Kostadinović - Web Developer',
-  description: 'Miloš Kostadinović web developer portfolio site.  ',
+  description:
+    'Miloš Kostadinović personal portfolio website. Frontend Web developer.  ',
 };
