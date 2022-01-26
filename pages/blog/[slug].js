@@ -62,7 +62,6 @@ export async function getStaticProps({ params: { slug } }) {
 
   const blogs = await data.data;
 
-  console.log(blogs);
   return {
     props: { blogs: blogs[0] || null },
   };

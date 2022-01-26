@@ -1,7 +1,6 @@
 import Link from 'next/link';
 
 export default function Blogs({ data }) {
-  console.log(data);
   return (
     <section className='mt-16 md:mt-20'>
       {data.map((blog) => {

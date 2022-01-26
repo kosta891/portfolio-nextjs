@@ -6,7 +6,6 @@ import Layout from '../../components/UI/Layout';
 import { API_URL } from '../../utils/urls';
 
 export default function blog({ blogs }) {
-  console.log(blogs);
   return (
     <Layout
       title='Blog | Miloš Kostadinović'

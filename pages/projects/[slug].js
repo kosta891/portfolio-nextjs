@@ -25,7 +25,6 @@ export default function singleProject({ project }) {
     },
   } = project.attributes;
 
-  console.log(project);
   return (
     <Layout title={`${name} | Miloš Kostadinović`} description={description}>
       <section>

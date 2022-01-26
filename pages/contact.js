@@ -19,7 +19,6 @@ export default function Contact() {
         email,
         message,
       });
-      console.log(response);
 
       if (!response) {
         toast.error('No response from api');
