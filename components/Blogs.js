@@ -18,7 +18,7 @@ export default function Blogs({ data }) {
               <a className='opacity-95 hover:opacity-100 transition-all'>
                 <div>
                   <div className='flex-column md:flex md:justify-between'>
-                    <h3 className='text-gray-700 dark:text-gray-200 font-medium '>
+                    <h3 className='text-gray-700 dark:text-gray-200 font-medium  mb-4'>
                       {name}
                     </h3>
                     <p>{date}</p>

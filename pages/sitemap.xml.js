@@ -1,9 +1,8 @@
-import { API_URL } from '../utils/urls';
+import { API_URL, NEXT_URL } from '../utils/urls';
 import axios from 'axios';
 const EXTERNAL_DATA_URL = `${API_URL}/projects`;
 
-function generateSiteMap(projects) {
-  console.log(projects);
+function generateSiteMap(blog, projects) {
   return `<?xml version="1.0" encoding="UTF-8"?>
    <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     
@@ -26,7 +25,17 @@ function generateSiteMap(projects) {
        .map(({ attributes: { slug } }) => {
          return `
        <url>
-           <loc>${`${EXTERNAL_DATA_URL}/${slug}`}</loc>
+           <loc>${`${NEXT_URL}/projects/${slug}`}</loc>
+       </url>
+     `;
+       })
+       .join('')}
+
+     ${blog
+       .map(({ attributes: { slug } }) => {
+         return `
+       <url>
+           <loc>${`${NEXT_URL}/blog/${slug}`}</loc>
        </url>
      `;
        })
@@ -43,11 +52,12 @@ export async function getServerSideProps({ res }) {
   // We make an API call to gather the URLs for our site
   const { data } = await axios(`${API_URL}/projects`);
   const projects = await data.data;
-  //   const request = await fetch(EXTERNAL_DATA_URL)
-  //   const posts = await request.json()
+  const blogs = await axios(`${API_URL}/blogs`);
+  const blog = await blogs.data.data;
+  console.log(blog);
 
   // We generate the XML sitemap with the posts data
-  const sitemap = generateSiteMap(projects);
+  const sitemap = generateSiteMap(blog, projects);
 
   res.setHeader('Content-Type', 'text/xml');
   // we send the XML to the browser
