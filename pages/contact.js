@@ -41,8 +41,10 @@ export default function Contact() {
   };
 
   return (
-    <Layout>
-      {/* shadow-lg */}
+    <Layout
+      title='Contact | Miloš Kostadinović'
+      description='Contact Page of Miloš Kostadinović website. Feel free to send a message.'
+    >
       <form className='rounded-lg flex flex-col ' onSubmit={submitHandler}>
         <h1 className='text-2xl font-bold text-gray-700 dark:text-gray-200'>
           Send a message
