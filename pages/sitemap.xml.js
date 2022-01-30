@@ -1,72 +1,72 @@
-import { API_URL, NEXT_URL } from '../utils/urls';
-import axios from 'axios';
-const EXTERNAL_DATA_URL = `${API_URL}/projects`;
+// import { API_URL, NEXT_URL } from '../utils/urls';
+// import axios from 'axios';
+// const EXTERNAL_DATA_URL = `${API_URL}/projects`;
 
-function generateSiteMap(blog, projects) {
-  return `<?xml version="1.0" encoding="UTF-8"?>
-   <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-    
-     <url>
-       <loc>https://miloskostadinovic.com</loc>
-     </url>
-     <url>
-       <loc>https://miloskostadinovic.com/about</loc>
-     </url>
-     <url>
-       <loc>https://miloskostadinovic.com/projects</loc>
-     </url>
-     <url>
-       <loc>https://miloskostadinovic.com/blog</loc>
-     </url>
-     <url>
-       <loc>https://miloskostadinovic.com/contact</loc>
-     </url>
-     ${projects
-       .map(({ attributes: { slug } }) => {
-         return `
-       <url>
-           <loc>${`${NEXT_URL}/projects/${slug}`}</loc>
-       </url>
-     `;
-       })
-       .join('')}
+// function generateSiteMap(blog, projects) {
+//   return `<?xml version="1.0" encoding="UTF-8"?>
+//    <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
-     ${blog
-       .map(({ attributes: { slug } }) => {
-         return `
-       <url>
-           <loc>${`${NEXT_URL}/blog/${slug}`}</loc>
-       </url>
-     `;
-       })
-       .join('')}
-   </urlset>
- `;
-}
+//      <url>
+//        <loc>https://miloskostadinovic.com</loc>
+//      </url>
+//      <url>
+//        <loc>https://miloskostadinovic.com/about</loc>
+//      </url>
+//      <url>
+//        <loc>https://miloskostadinovic.com/projects</loc>
+//      </url>
+//      <url>
+//        <loc>https://miloskostadinovic.com/blog</loc>
+//      </url>
+//      <url>
+//        <loc>https://miloskostadinovic.com/contact</loc>
+//      </url>
+//      ${projects
+//        .map(({ attributes: { slug } }) => {
+//          return `
+//        <url>
+//            <loc>${`${NEXT_URL}/projects/${slug}`}</loc>
+//        </url>
+//      `;
+//        })
+//        .join('')}
 
-function SiteMap() {
-  // getServerSideProps will do the heavy lifting
-}
+//      ${blog
+//        .map(({ attributes: { slug } }) => {
+//          return `
+//        <url>
+//            <loc>${`${NEXT_URL}/blog/${slug}`}</loc>
+//        </url>
+//      `;
+//        })
+//        .join('')}
+//    </urlset>
+//  `;
+// }
 
-export async function getServerSideProps({ res }) {
-  // We make an API call to gather the URLs for our site
-  const { data } = await axios(`${API_URL}/projects`);
-  const projects = await data.data;
-  const blogs = await axios(`${API_URL}/blogs`);
-  const blog = await blogs.data.data;
-  console.log(blog);
+// function SiteMap() {
+//   // getServerSideProps will do the heavy lifting
+// }
 
-  // We generate the XML sitemap with the posts data
-  const sitemap = generateSiteMap(blog, projects);
+// export async function getServerSideProps({ res }) {
+//   // We make an API call to gather the URLs for our site
+//   const { data } = await axios(`${API_URL}/projects`);
+//   const projects = await data.data;
+//   const blogs = await axios(`${API_URL}/blogs`);
+//   const blog = await blogs.data.data;
+//   console.log(blog);
 
-  res.setHeader('Content-Type', 'text/xml');
-  // we send the XML to the browser
-  res.write(sitemap);
-  res.end();
+//   // We generate the XML sitemap with the posts data
+//   const sitemap = generateSiteMap(blog, projects);
 
-  return {
-    props: {},
-  };
-}
+//   res.setHeader('Content-Type', 'text/xml');
+//   // we send the XML to the browser
+//   res.write(sitemap);
+//   res.end();
 
-export default SiteMap;
+//   return {
+//     props: {},
+//   };
+// }
+
+// export default SiteMap;
