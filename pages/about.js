@@ -32,12 +32,13 @@ export default function about() {
             <div className='mt-4 md:mt-6'>
               <p className='mt-2 md:mt-6'>
                 I&apos;m a Frontend Developer. Currently developing apps and
-                websites on React and NextJs. In my free time reading developers
-                blogs and articles. New to Gatsby and Tailwind Css.
+                websites on React and NextJs. In a previous project we build app
+                in Angular. In my free time reading developers blogs and
+                articles.
               </p>
               <p className='mt-2 md:mt-6'>
                 Becoming a better developer and growing a career in tech are my
-                main goals. Let’s Make the Web.
+                main goals. Let&apos;s Make the Web.
               </p>
             </div>
           </div>
