@@ -50,9 +50,9 @@ export const social = [
 export const skills = [
   { id: 1, text: 'Angular', icon: <SiAngular /> },
   { id: 2, text: 'React', icon: <SiReact /> },
-  { id: 1, text: 'Next', icon: <SiNextdotjs /> },
+  { id: 3, text: 'Next', icon: <SiNextdotjs /> },
   { id: 4, text: 'JavaScript', icon: <DiJavascript1 /> },
   { id: 5, text: 'HTML', icon: <FaHtml5 /> },
   { id: 6, text: 'Css', icon: <FaCss3Alt /> },
-  { id: 3, text: 'Git', icon: <DiGit /> },
+  { id: 7, text: 'Git', icon: <DiGit /> },
 ];
