@@ -5,7 +5,7 @@ mail.setApiKey(process.env.SENDGRID_API_KEY);
 export default async function handler(req, res) {
   if (req.method === 'POST') {
     const { name, email, message } = req.body;
-
+    console.log(name, email, message);
     if (
       !email ||
       !email.includes('@') ||

@@ -18,7 +18,3 @@ function MyApp({ Component, pageProps }) {
 }
 
 export default MyApp;
-
-// css global styles fonts, media queries
-// navbar
-// footer
