@@ -91,5 +91,6 @@ export async function getStaticProps({ params: { slug } }) {
 
   return {
     props: { project: items[0] || null },
+    revalidate: 180,
   };
 }

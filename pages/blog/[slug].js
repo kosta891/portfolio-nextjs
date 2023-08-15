@@ -65,5 +65,6 @@ export async function getStaticProps({ params: { slug } }) {
 
   return {
     props: { blogs: items[0] || null },
+    revalidate: 180,
   };
 }
