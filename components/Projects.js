@@ -2,24 +2,28 @@ import Image from 'next/image';
 import Link from 'next/link';
 
 export default function Projects({ data }) {
+  console.log(data);
+  console.log(data);
   return (
+    // <div>kklkl</div>
     <section>
       {data.map((project, inx) => {
+        console.log(project);
         const {
           name,
           description,
           slug,
 
           image: {
-            data: {
-              attributes: { formats },
+            fields: {
+              file: { url },
             },
           },
-        } = project.attributes;
+        } = project.fields;
 
         return (
           <div
-            key={project.id}
+            key={project.sys.id}
             className={`flex flex-col ${
               (inx + 1) % 2 === 0 ? 'md:flex-row-reverse' : 'md:flex-row'
             } md:justify-between rounded mt-16 md:mt-20  `}
@@ -27,14 +31,14 @@ export default function Projects({ data }) {
             <Link href={`/projects/${slug}`}>
               <a className='opacity-95 hover:opacity-100 transition-all'>
                 <Image
-                  src={formats.medium.url}
+                  src={`https:${url}`}
                   alt={name}
                   width={500}
                   height={350}
                   className='rounded w-full md:w-1/2 '
                   objectFit='cover'
                   objectPosition='center center'
-                  blurDataURL={formats.medium.url}
+                  blurDataURL={`https:${url}`}
                   placeholder='blur'
                 />
               </a>

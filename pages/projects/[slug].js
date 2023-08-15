@@ -1,10 +1,6 @@
-import axios from 'axios';
-
+import { createClient } from 'contentful';
 import Image from 'next/image';
-
 import Layout from '../../components/UI/Layout';
-import { API_URL } from '../../utils/urls';
-
 import NotFoundPage from '../404';
 
 export default function singleProject({ project }) {
@@ -17,13 +13,12 @@ export default function singleProject({ project }) {
     description,
     github,
     livesite,
-    createdAt,
     image: {
-      data: {
-        attributes: { formats },
+      fields: {
+        file: { url },
       },
     },
-  } = project.attributes;
+  } = project.fields;
 
   return (
     <Layout title={`${name} | Miloš Kostadinović`} description={description}>
@@ -35,7 +30,7 @@ export default function singleProject({ project }) {
 
         <div>
           <Image
-            src={formats.large.url}
+            src={`https:${url}`}
             alt={name}
             width={720}
             height={500}
@@ -52,7 +47,7 @@ export default function singleProject({ project }) {
               target='_blank'
               rel='noreferrer'
             >
-              github
+              Github
             </a>
           )}
           {livesite && (
@@ -71,12 +66,15 @@ export default function singleProject({ project }) {
   );
 }
 
-export async function getStaticPaths() {
-  const { data } = await axios(`${API_URL}/projects`);
-  const project = await data.data;
+const client = createClient({
+  space: process.env.CONTENTFUL_SPACE_ID,
+  accessToken: process.env.CONTENTFUL_ACCESS_KEY,
+});
 
-  const paths = project.map((item) => ({
-    params: { slug: item.attributes.slug },
+export async function getStaticPaths() {
+  const res = await client.getEntries({ content_type: 'projects' });
+  const paths = res.items.map((item) => ({
+    params: { slug: item.fields.slug },
   }));
 
   return {
@@ -86,13 +84,12 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params: { slug } }) {
-  const { data } = await axios(
-    `${API_URL}/projects?filters[slug][$eq]=${slug}&populate=image&`
-  );
-
-  const project = await data.data;
+  const { items } = await client.getEntries({
+    content_type: 'projects',
+    'fields.slug': slug,
+  });
 
   return {
-    props: { project: project[0] || null },
+    props: { project: items[0] || null },
   };
 }

@@ -1,9 +1,8 @@
-import axios from 'axios';
+import { createClient } from 'contentful';
+import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 import Link from 'next/link';
 import { BsArrowLeft } from 'react-icons/bs';
-import ReactMarkdown from 'react-markdown';
 import Layout from '../../components/UI/Layout';
-import { API_URL } from '../../utils/urls';
 import NotFoundPage from '../404';
 
 export default function Blog({ blogs }) {
@@ -11,9 +10,9 @@ export default function Blog({ blogs }) {
     return <NotFoundPage />;
   }
 
-  const { name, description, summary, publishedAt } = blogs.attributes;
-
-  const date = new Date(publishedAt).toLocaleDateString('en', {
+  const { name, description, summary } = blogs.fields;
+  console.log(description);
+  const date = new Date(blogs.sys.createdAt).toLocaleDateString('en', {
     month: 'long',
     day: '2-digit',
     year: 'numeric',
@@ -27,7 +26,7 @@ export default function Blog({ blogs }) {
         </h1>
         <p>{date}</p>
         <div className='mt-2 md:mt-6 mb-6 md:mb-8'>
-          <ReactMarkdown className='reactMarkdown'>{description}</ReactMarkdown>
+          {documentToReactComponents(description)}
         </div>
       </section>
 
@@ -41,12 +40,15 @@ export default function Blog({ blogs }) {
   );
 }
 
-export async function getStaticPaths() {
-  const { data } = await axios(`${API_URL}/blogs`);
-  const blogs = await data.data;
+const client = createClient({
+  space: process.env.CONTENTFUL_SPACE_ID,
+  accessToken: process.env.CONTENTFUL_ACCESS_KEY,
+});
 
-  const paths = blogs.map((blog) => ({
-    params: { slug: blog.attributes.slug },
+export async function getStaticPaths() {
+  const { items } = await client.getEntries({ content_type: 'blog' });
+  const paths = items.map((item) => ({
+    params: { slug: item.fields.slug },
   }));
 
   return {
@@ -56,13 +58,12 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params: { slug } }) {
-  const { data } = await axios(
-    `${API_URL}/blogs?filters[slug][$eq]=${slug}&populate=image&`
-  );
-
-  const blogs = await data.data;
+  const { items } = await client.getEntries({
+    content_type: 'blog',
+    'fields.slug': slug,
+  });
 
   return {
-    props: { blogs: blogs[0] || null },
+    props: { blogs: items[0] || null },
   };
 }
