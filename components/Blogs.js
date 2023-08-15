@@ -4,16 +4,16 @@ export default function Blogs({ data }) {
   return (
     <section className='mt-16 md:mt-20'>
       {data.map((blog) => {
-        const { name, summary, slug, publishedAt } = blog.attributes;
+        const { name, summary, slug } = blog.fields;
 
-        const date = new Date(publishedAt).toLocaleDateString('en', {
+        const date = new Date(blog.sys.createdAt).toLocaleDateString('en', {
           month: 'long',
           day: '2-digit',
           year: 'numeric',
         });
 
         return (
-          <div key={blog.id}>
+          <div key={blog.sys.id}>
             <Link href={`/blog/${slug}`}>
               <a className='opacity-95 hover:opacity-100 transition-all'>
                 <div>
