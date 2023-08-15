@@ -6,8 +6,8 @@ export default function about() {
   return (
     <Layout
       title='About | Miloš Kostadinović'
-      description="I'm a Frontend Developer. Currently developing apps and websites
-    on React and NextJs. Becoming a better developer is my main goal."
+      description="I'm a Frontend Developer. Currently developing apps and
+      websites in Angular and React. Becoming a better developer is my main goal."
     >
       <section>
         <div className='flex flex-col md:flex-row'>
@@ -32,8 +32,8 @@ export default function about() {
             <div className='mt-4 md:mt-6'>
               <p className='mt-2 md:mt-6'>
                 I&apos;m a Frontend Developer. Currently developing apps and
-                websites on React and NextJs. In a previous project we build app
-                in Angular. In my free time reading developers blogs and
+                websites in Angular and React. In a previous project we build
+                app in Angular. In my free time reading developers blogs and
                 articles.
               </p>
               <p className='mt-2 md:mt-6'>

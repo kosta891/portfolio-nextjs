@@ -1,3 +1,4 @@
+import { createClient } from 'contentful';
 import Image from 'next/image';
 import Link from 'next/link';
 
@@ -6,8 +7,6 @@ import Projects from '../components/Projects';
 import Layout from '../components/UI/Layout';
 
 import { social } from '../utils/constants';
-import axios from 'axios';
-import { API_URL } from '../utils/urls';
 import Skills from '../components/Skills';
 
 export default function Home({ projects }) {
@@ -78,13 +77,17 @@ export default function Home({ projects }) {
   );
 }
 export async function getStaticProps() {
-  const { data } = await axios(
-    `${API_URL}/projects?filters[featured][$eq]=true&populate=image`
-  );
-  const projects = await data.data;
+  const client = createClient({
+    space: process.env.CONTENTFUL_SPACE_ID,
+    accessToken: process.env.CONTENTFUL_ACCESS_KEY,
+  });
+  const res = await client.getEntries({
+    content_type: 'projects',
+    'fields.featured': true,
+  });
 
   return {
-    props: { projects },
+    props: { projects: res.items },
     revalidate: 3600,
   };
 }

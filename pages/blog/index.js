@@ -1,9 +1,6 @@
-import axios from 'axios';
-import Image from 'next/image';
+import { createClient } from 'contentful';
 import Blogs from '../../components/Blogs';
-
 import Layout from '../../components/UI/Layout';
-import { API_URL } from '../../utils/urls';
 
 export default function blog({ blogs }) {
   return (
@@ -20,11 +17,14 @@ export default function blog({ blogs }) {
   );
 }
 
-export async function getStaticProps({ ctx }) {
-  const { data } = await axios.get(`${API_URL}/blogs?&populate=image`);
-  const blogs = await data.data;
+export async function getStaticProps() {
+  const client = createClient({
+    space: process.env.CONTENTFUL_SPACE_ID,
+    accessToken: process.env.CONTENTFUL_ACCESS_KEY,
+  });
+  const { items } = await client.getEntries({ content_type: 'blog' });
 
   return {
-    props: { blogs },
+    props: { blogs: items },
   };
 }

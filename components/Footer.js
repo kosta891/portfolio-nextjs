@@ -1,4 +1,5 @@
 import { social } from '../utils/constants';
+
 export default function Footer() {
   return (
     <footer className='mt-8 mb-16'>

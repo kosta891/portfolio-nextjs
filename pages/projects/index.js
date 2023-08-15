@@ -1,12 +1,9 @@
-import axios from 'axios';
-
 import Projects from '../../components/Projects';
-
 import Layout from '../../components/UI/Layout';
-
-import { API_URL } from '../../utils/urls';
+import { createClient } from 'contentful';
 
 export default function projects({ projects }) {
+  console.log(projects);
   return (
     <Layout
       title='Projects | Miloš Kostadinović'
@@ -21,10 +18,13 @@ export default function projects({ projects }) {
 }
 
 export async function getStaticProps() {
-  const { data } = await axios(`${API_URL}/projects?&populate=image`);
-  const projects = await data.data;
+  const client = createClient({
+    space: process.env.CONTENTFUL_SPACE_ID,
+    accessToken: process.env.CONTENTFUL_ACCESS_KEY,
+  });
+  const res = await client.getEntries({ content_type: 'projects' });
 
   return {
-    props: { projects },
+    props: { projects: res.items },
   };
 }
