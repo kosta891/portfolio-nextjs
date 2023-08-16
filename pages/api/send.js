@@ -18,7 +18,7 @@ export default async (req, res) => {
   }
   try {
     const data = await resend.emails.send({
-      from: 'Portfolio <milos@miloskostadinovic.com>',
+      from: '<portfolio@miloskostadinovic.com>',
       to: [email],
       subject: 'Contact form miloskostadinovic.com',
       react: `Successfuly sent message.\n name:${name};\n email:${email};\n message:${message};\n`,
