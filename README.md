@@ -5,9 +5,9 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 
 Open [miloskostadinovic.com](https://miloskostadinovic.com) with your browser to see portfolio.
 
-Website was made with [nextjs](https://nextjs.org) and [strapi](https://strapi.io).
+Website was made with [nextjs](https://nextjs.org) and [contentful](https://www.contentful.com).
 
-Images were optimized with nextjs Image and [cloudinary](https://cloudinary.com).
+Images were optimized with nextjs Image.
 
 Styles were made with [tailwind.css](https://tailwindcss.com).
 
