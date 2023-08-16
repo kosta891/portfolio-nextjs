@@ -5,7 +5,7 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 
 Open [miloskostadinovic.com](https://miloskostadinovic.com) with your browser to see portfolio.
 
-Website was made with [nextjs](https://nextjs.org) and [contentful]([https://contentful.io](https://www.contentful.com/)).
+Website was made with [nextjs](https://nextjs.org) and [contentful](https://www.contentful.com).
 
 Images were optimized with nextjs Image.
 
