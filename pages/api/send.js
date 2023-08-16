@@ -18,8 +18,8 @@ export default async (req, res) => {
   }
   try {
     const data = await resend.emails.send({
-      from: '<portfolio@miloskostadinovic.com>',
-      to: [email],
+      from: 'Porfolio <milos@miloskostadinovic.com>',
+      to: `milos@miloskostadinovic.com`,
       subject: 'Contact form miloskostadinovic.com',
       react: `Successfuly sent message.\n name:${name};\n email:${email};\n message:${message};\n`,
     });
