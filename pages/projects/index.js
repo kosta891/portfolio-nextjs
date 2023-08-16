@@ -3,7 +3,6 @@ import Layout from '../../components/UI/Layout';
 import { createClient } from 'contentful';
 
 export default function projects({ projects }) {
-  console.log(projects);
   return (
     <Layout
       title='Projects | Miloš Kostadinović'

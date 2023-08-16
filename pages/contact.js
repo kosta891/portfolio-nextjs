@@ -14,7 +14,7 @@ export default function Contact() {
     e.preventDefault();
 
     try {
-      const response = await axios.post('/api/contact', {
+      const response = await axios.post('/api/send', {
         name,
         email,
         message,
@@ -30,7 +30,6 @@ export default function Contact() {
       setMessage('');
       toast.success('Message sent');
     } catch (error) {
-      console.log(error);
       toast.error(
         error.message === 'Request failed with status code 422'
           ? 'Please fill all fields'

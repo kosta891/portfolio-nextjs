@@ -11,7 +11,7 @@ export default function Blog({ blogs }) {
   }
 
   const { name, description, summary } = blogs.fields;
-  console.log(description);
+
   const date = new Date(blogs.sys.createdAt).toLocaleDateString('en', {
     month: 'long',
     day: '2-digit',

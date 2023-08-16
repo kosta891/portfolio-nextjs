@@ -2,13 +2,9 @@ import Image from 'next/image';
 import Link from 'next/link';
 
 export default function Projects({ data }) {
-  console.log(data);
-  console.log(data);
   return (
-    // <div>kklkl</div>
     <section>
       {data.map((project, inx) => {
-        console.log(project);
         const {
           name,
           description,
