@@ -4,6 +4,7 @@ import {
   FaInstagram,
   FaHtml5,
   FaCss3Alt,
+  FaLinkedin,
 } from 'react-icons/fa';
 import { MdOutlineAlternateEmail } from 'react-icons/md';
 
@@ -44,6 +45,12 @@ export const social = [
     url: 'mailto:milos@miloskostadinovic.com',
     icon: <MdOutlineAlternateEmail />,
     text: 'email',
+  },
+  {
+    id: 5,
+    url: 'https://www.linkedin.com/in/milos-kostadinovic-05bb76230',
+    icon: <FaLinkedin />,
+    text: 'linkedIn',
   },
 ];
 
