@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { BsArrowLeft } from 'react-icons/bs';
 import Layout from '../../components/UI/Layout';
 import NotFoundPage from '../404';
+import RichText from '../../components/RichText';
 
 export default function Blog({ blogs }) {
   if (!blogs || blogs.length === 0) {
@@ -26,7 +27,7 @@ export default function Blog({ blogs }) {
         </h1>
         <p>{date}</p>
         <div className='mt-2 md:mt-6 mb-6 md:mb-8'>
-          {documentToReactComponents(description)}
+          <RichText richText={description} />
         </div>
       </section>
 
