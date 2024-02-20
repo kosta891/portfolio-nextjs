@@ -60,7 +60,7 @@ export default function Contact() {
           name='name'
           value={name}
           onChange={(e) => setName(e.target.value)}
-          className='bg-transparent border-b py-2 pl-4 focus:outline-none focus:rounded-md focus:ring-1  text-gray-600 dark:text-gray-400'
+          className='bg-transparent border-b py-2 pl-4 focus:outline-none text-gray-600 dark:text-gray-400'
         />
 
         <label
@@ -72,7 +72,7 @@ export default function Contact() {
         <input
           type='email'
           name='email'
-          className='bg-transparent border-b py-2 pl-4 focus:outline-none focus:rounded-md focus:ring-1 text-gray-600 dark:text-gray-400'
+          className='bg-transparent border-b py-2 pl-4 text-gray-600 dark:text-gray-400'
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           required
@@ -86,7 +86,7 @@ export default function Contact() {
         </label>
         <textarea
           name='message'
-          className='bg-transparent border-b py-2 pl-4 h-20 focus:outline-none focus:rounded-md focus:ring-1 resize-none  text-gray-600 dark:text-gray-400'
+          className='bg-transparent border-b py-2 pl-4 h-20 resize-none text-gray-600 dark:text-gray-400'
           value={message}
           onChange={(e) => setMessage(e.target.value)}
         ></textarea>

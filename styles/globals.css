@@ -59,3 +59,8 @@ a {
 .page {
   min-height: calc(100vh - (20vh + 270px));
 }
+
+textarea:focus,
+input:focus {
+  outline: none;
+}
