@@ -12,7 +12,7 @@ export default function Layout({ title, description, children }) {
 
         <script
           async
-          src='https://www.googletagmanager.com/gtag/js?id=G-JG7VBBCNK2'
+          src={`https://www.googletagmanager.com/gtag/js?id=${process.env.ID}`}
         ></script>
         <script>
           window.dataLayer = window.dataLayer || []; function gtag()
